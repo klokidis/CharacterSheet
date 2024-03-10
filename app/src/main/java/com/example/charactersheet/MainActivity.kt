@@ -32,10 +32,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import com.example.charactersheet.data.Datasource
-import kotlin.math.round
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,8 +59,7 @@ fun CharacterSheetApp() {
 
 @Composable
 fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
-    Column(Modifier
-        .padding(top = 5.dp),
+    Column(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
