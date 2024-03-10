@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import com.example.charactersheet.data.Datasource
+import kotlin.math.round
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,7 +84,11 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
 
 @Composable
 fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
-    Card(modifier = modifier,
+    Card(
+        modifier = modifier
+            .clip(RoundedCornerShape(percent = 10))
+            .clickable {
+        },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
         )) {
@@ -92,14 +98,14 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
                 painter = painterResource(artist.imageResourceId),
                 contentDescription = stringResource(artist.stringResourceId),
                 modifier = Modifier
-                    .size(width = 140.dp, height = 130.dp)
+                    .size(width = 120.dp, height = 110.dp)
                     .padding(7.dp)
                     .clip(RoundedCornerShape(percent = 10)),
                 contentScale = ContentScale.Crop
             )
             Text(
                 text = LocalContext.current.getString(artist.stringResourceId),
-                modifier = Modifier.padding(start = 10.dp, end = 16.dp),
+                modifier = Modifier.padding(start = 10.dp),
                 style = MaterialTheme.typography.titleLarge
             )
         }
