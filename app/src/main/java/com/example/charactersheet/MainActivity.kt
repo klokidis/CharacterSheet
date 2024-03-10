@@ -3,7 +3,6 @@ package com.example.charactersheet
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -34,6 +33,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import com.example.charactersheet.data.Datasource
 import kotlin.math.round
 
@@ -67,7 +67,7 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = LocalContext.current.getString(R.string.Artists),
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
         LazyColumn(modifier = modifier) {
             items(artistList) { artist ->
@@ -106,7 +106,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             Text(
                 text = LocalContext.current.getString(artist.stringResourceId),
                 modifier = Modifier.padding(start = 10.dp),
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.SemiBold)
             )
         }
     }
