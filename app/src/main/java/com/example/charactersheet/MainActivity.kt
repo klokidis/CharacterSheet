@@ -61,9 +61,10 @@ fun CharacterSheetApp() {
 fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.Start) {
         Text(
             text = LocalContext.current.getString(R.string.Artists),
+            modifier = Modifier.padding(start = 20.dp),
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
         LazyColumn{
@@ -86,6 +87,9 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             .clip(RoundedCornerShape(percent = 10))
             .clickable {
         },
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
         )) {
