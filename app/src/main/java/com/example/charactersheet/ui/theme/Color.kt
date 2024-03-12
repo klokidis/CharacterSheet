@@ -9,3 +9,11 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val light_background = Color(0xFFFBFCFE)
+val light_surfaceVariant = Color(0xFFE7E0EC)
+val light_onSurfaceVariant = Color(0xFF49454f)
+
+val dark_background = Color(0xFF191C1D)
+val dark_surfaceVariant = Color(0xFF49454f)
+val dark_onSurfaceVariant = Color(0xFFCAC4D0)

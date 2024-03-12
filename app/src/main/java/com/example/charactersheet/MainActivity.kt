@@ -66,7 +66,7 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
             text = LocalContext.current.getString(R.string.Artists),
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
-        LazyColumn(modifier = modifier) {
+        LazyColumn{
             items(artistList) { artist ->
                 ArtistCard(
                     artist = artist,
@@ -93,7 +93,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Start) {
             Image(
                 painter = painterResource(artist.imageResourceId),
-                contentDescription = stringResource(artist.stringResourceId),
+                contentDescription = null, //no need
                 modifier = Modifier
                     .size(width = 120.dp, height = 110.dp)
                     .padding(7.dp)
