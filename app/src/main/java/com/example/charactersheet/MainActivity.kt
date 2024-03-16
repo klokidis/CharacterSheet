@@ -34,6 +34,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.charactersheet.data.Datasource
 
@@ -73,7 +74,7 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
                 ArtistCard(
                     artist = artist,
                     modifier = modifier
-                        .padding(top = 10.dp, start = 10.dp, end = 10.dp)
+                        .padding(top = dimensionResource(R.dimen.padding_medium), start = dimensionResource(R.dimen.padding_medium), end = dimensionResource(R.dimen.padding_medium))
                 )
             }
         }
@@ -92,7 +93,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             containerColor = MaterialTheme.colorScheme.surface,
         ),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp
+            defaultElevation = dimensionResource(R.dimen.elevation_image),
         )) {
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start) {
@@ -101,15 +102,15 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
                     painter = painterResource(artist.imageResourceId),
                     contentDescription = null, //no need
                     modifier = Modifier
-                        .size(width = 115.dp, height = 105.dp)
-                        .padding(end = 6.dp)
+                        .size(width = dimensionResource(R.dimen.image_width), height = dimensionResource(R.dimen.image_height))
+                        .padding(end = dimensionResource(R.dimen.padding_small))
                         .aspectRatio(1f),
                     contentScale = ContentScale.Crop
                 )
             }
             Text(
                 text = LocalContext.current.getString(artist.stringResourceId),
-                modifier = Modifier.padding(start = 10.dp),
+                modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_medium)),
                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.SemiBold),
             )
         }
