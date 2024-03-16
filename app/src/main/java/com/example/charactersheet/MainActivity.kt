@@ -6,12 +6,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -41,7 +44,7 @@ class MainActivity : ComponentActivity() {
             CharacterSheetTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().statusBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     CharacterSheetApp()
@@ -60,10 +63,9 @@ fun CharacterSheetApp() {
 fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start) {
+        horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = LocalContext.current.getString(R.string.Artists),
-            modifier = modifier.padding(start = 20.dp),
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
         LazyColumn{
@@ -87,26 +89,28 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             .clickable {
         },
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            containerColor = MaterialTheme.colorScheme.surface,
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
         )) {
         Row(verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start) {
-            Image(
-                painter = painterResource(artist.imageResourceId),
-                contentDescription = null, //no need
-                modifier = Modifier
-                    .size(width = 120.dp, height = 110.dp)
-                    .padding(6.dp)
-                    .clip(RoundedCornerShape(percent = 10)),
-                contentScale = ContentScale.Crop
-            )
+            Box {
+                Image(
+                    painter = painterResource(artist.imageResourceId),
+                    contentDescription = null, //no need
+                    modifier = Modifier
+                        .size(width = 115.dp, height = 105.dp)
+                        .padding(end = 6.dp)
+                        .aspectRatio(1f),
+                    contentScale = ContentScale.Crop
+                )
+            }
             Text(
                 text = LocalContext.current.getString(artist.stringResourceId),
                 modifier = Modifier.padding(start = 10.dp),
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.SemiBold)
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.SemiBold),
             )
         }
     }
@@ -115,7 +119,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    CharacterSheetTheme {
+    CharacterSheetTheme() {
         ArtistCard(Artist(R.string.name1,R.drawable.artist1) )
     }
 }
