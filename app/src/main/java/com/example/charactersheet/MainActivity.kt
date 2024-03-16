@@ -22,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.charactersheet.model.Artist
@@ -64,16 +63,15 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.Start) {
         Text(
             text = LocalContext.current.getString(R.string.Artists),
-            modifier = Modifier.padding(start = 20.dp),
+            modifier = modifier.padding(start = 20.dp),
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
         LazyColumn{
             items(artistList) { artist ->
                 ArtistCard(
                     artist = artist,
-                    modifier = Modifier
+                    modifier = modifier
                         .padding(top = 10.dp, start = 10.dp, end = 10.dp)
-                        .fillMaxWidth()
                 )
             }
         }
@@ -84,6 +82,7 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
 fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
+            .fillMaxWidth()
             .clip(RoundedCornerShape(percent = 10))
             .clickable {
         },
@@ -100,7 +99,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
                 contentDescription = null, //no need
                 modifier = Modifier
                     .size(width = 120.dp, height = 110.dp)
-                    .padding(7.dp)
+                    .padding(6.dp)
                     .clip(RoundedCornerShape(percent = 10)),
                 contentScale = ContentScale.Crop
             )
