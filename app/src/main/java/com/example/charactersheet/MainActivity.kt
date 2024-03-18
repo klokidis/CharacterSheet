@@ -120,7 +120,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    CharacterSheetTheme() {
+    CharacterSheetTheme {
         ArtistCard(Artist(R.string.name1,R.drawable.artist1) )
     }
 }
