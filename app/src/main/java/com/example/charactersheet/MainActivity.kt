@@ -30,9 +30,11 @@ import com.example.charactersheet.model.Artist
 import com.example.charactersheet.ui.theme.CharacterSheetTheme
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import com.example.charactersheet.data.Datasource
 
 class MainActivity : ComponentActivity() {
@@ -59,23 +61,38 @@ fun CharacterSheetApp() {
 
 @Composable
 fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
-    Column(
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = LocalContext.current.getString(R.string.Artists),
-            style = MaterialTheme.typography.displayLarge
-        )
-        LazyColumn{
+    Scaffold(
+        topBar ={
+            TopAppBar()
+        }
+    ) { it ->
+        LazyColumn(contentPadding = it)  {
             items(artistList) { artist ->
                 ArtistCard(
                     artist = artist,
                     modifier = modifier
-                        .padding(top = dimensionResource(R.dimen.padding_medium), start = dimensionResource(R.dimen.padding_medium), end = dimensionResource(R.dimen.padding_medium))
+                        .padding(
+                            top = dimensionResource(R.dimen.padding_medium),
+                            start = dimensionResource(R.dimen.padding_medium),
+                            end = dimensionResource(R.dimen.padding_medium)
+                        )
                 )
             }
         }
     }
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopAppBar(modifier: Modifier = Modifier) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = LocalContext.current.getString(R.string.Artists),
+                style = MaterialTheme.typography.displayLarge
+            )
+        },
+        modifier = modifier
+    )
 }
 
 @Composable
