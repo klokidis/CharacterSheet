@@ -64,7 +64,7 @@ fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = LocalContext.current.getString(R.string.Artists),
-            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.displayLarge
         )
         LazyColumn{
             items(artistList) { artist ->
@@ -107,7 +107,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             Text(
                 text = LocalContext.current.getString(artist.stringResourceId),
                 modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_medium)),
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.SemiBold),
+                style = MaterialTheme.typography.titleLarge,
             )
         }
     }
