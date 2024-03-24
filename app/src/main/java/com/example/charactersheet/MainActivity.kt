@@ -29,12 +29,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.charactersheet.model.Artist
 import com.example.charactersheet.ui.theme.CharacterSheetTheme
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.ui.draw.clip
 import com.example.charactersheet.data.Datasource
 
 class MainActivity : ComponentActivity() {
@@ -100,6 +102,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium)
             .clickable {
         },
         colors = CardDefaults.cardColors(
