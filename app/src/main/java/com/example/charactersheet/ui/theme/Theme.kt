@@ -122,7 +122,6 @@ fun CharacterSheetTheme( darkTheme: Boolean = isSystemInDarkTheme(),
 
 private fun setUpEdgeToEdge(view: View, darkTheme: Boolean) {
     val window = (view.context as Activity).window
-    WindowCompat.setDecorFitsSystemWindows(window, false)
     window.statusBarColor = Color.Transparent.toArgb()
     val navigationBarColor = when {
         Build.VERSION.SDK_INT >= 29 -> Color.Transparent.toArgb()
@@ -130,7 +129,6 @@ private fun setUpEdgeToEdge(view: View, darkTheme: Boolean) {
         // Min sdk version for this app is 24, this block is for SDK versions 24 and 25
         else -> Color(0x00, 0x00, 0x00, 0x50).toArgb()
     }
-    window.navigationBarColor = navigationBarColor
     val controller = WindowCompat.getInsetsController(window, view)
     controller.isAppearanceLightStatusBars = !darkTheme
     controller.isAppearanceLightNavigationBars = !darkTheme
