@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.charactersheet.ui.theme.CharacterSheetTheme
 
 private const val TAG = "com.example.charactersheet.MainActivity"
@@ -12,8 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CharacterSheetTheme {
-                // A surface container using the 'background' color from the theme
-                    CharacterSheetApp()
+                CharacterSheetApp()
             }
         }
     }
@@ -44,5 +45,13 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy Called")
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    CharacterSheetTheme {
+        CharacterSheetApp()
     }
 }

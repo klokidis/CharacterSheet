@@ -22,12 +22,12 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.charactersheet.data.Datasource
 import com.example.charactersheet.ui.ArtistList
 import com.example.charactersheet.ui.CharacterViewModel
 
 enum class CharacterScreen(@StringRes var title: Int) {
-    Start(title = R.string.app_name)
+    Start(title = R.string.app_name),
+    Artist(title = R.string.app_name),
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,7 +85,17 @@ fun CharacterSheetApp(
             modifier = Modifier.padding(innerPadding)
         ){
             composable(route = CharacterScreen.Start.name) {
-                ArtistList(Datasource().loadArtists())
+                ArtistList(
+                    onButtonCard = {
+                        CharacterScreen.Artist.title = it.stringResourceId
+                        viewModel.selectedArtist(it)
+                        navController.navigate(CharacterScreen.Artist.name)
+                    },
+                    uiState.listOfArtists,
+                )
+            }
+            composable(route = CharacterScreen.Artist.name) {
+
             }
         }
     }

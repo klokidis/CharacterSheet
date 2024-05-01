@@ -31,7 +31,11 @@ import com.example.charactersheet.data.Datasource
 import com.example.charactersheet.model.Artist
 
 @Composable
-fun ArtistList(artistList: List<Artist>, modifier: Modifier = Modifier) {
+fun ArtistList(
+    onButtonCard: (Artist) -> Unit,
+    artistList: List<Artist>,
+    modifier: Modifier = Modifier
+) {
     LazyColumn {
         items(artistList) { artist ->
             ArtistCard(
@@ -55,7 +59,7 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
             .clickable {
             },
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
+            containerColor = MaterialTheme.colorScheme.inverseOnSurface,
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = dimensionResource(R.dimen.elevation_image),
@@ -88,6 +92,6 @@ fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     CharacterSheetTheme {
-        ArtistList(Datasource().loadArtists())
+        ArtistList({},Datasource().loadArtists())
     }
 }
