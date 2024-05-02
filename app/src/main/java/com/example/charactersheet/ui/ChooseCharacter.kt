@@ -6,21 +6,28 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
@@ -40,8 +47,9 @@ fun ChooseCharacter(
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(10.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-        modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+        modifier = Modifier
+            .padding(start = 10.dp, end = 10.dp)
+            .fillMaxSize()
         ) {
         items(characterList) { thisCharacter ->
             CharacterCard(
@@ -51,7 +59,7 @@ fun ChooseCharacter(
                     .padding(
                         top = dimensionResource(R.dimen.padding_medium),
                         start = dimensionResource(R.dimen.padding_medium),
-                        end = dimensionResource(R.dimen.padding_medium)
+                        end = dimensionResource(R.dimen.padding_medium),
                     ),
             )
         }
@@ -61,16 +69,20 @@ fun ChooseCharacter(
 @Composable
 fun CharacterCard(character: Character,onButtonCard: () -> Unit, modifier: Modifier) {
     Card(
-        modifier = modifier
-            .clip(MaterialTheme.shapes.medium)
-            .wrapContentSize(),
-        onClick = onButtonCard,
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.inverseOnSurface,
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = dimensionResource(R.dimen.elevation_image),
-        )) {
+        ),
+        modifier = modifier
+            .clip(MaterialTheme.shapes.medium)
+            .wrapContentSize()
+            .padding(bottom = 5.dp)
+            .shadow(elevation = 2.dp, shape = RoundedCornerShape(16.dp)),
+
+        onClick = onButtonCard,
+        ) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -79,18 +91,22 @@ fun CharacterCard(character: Character,onButtonCard: () -> Unit, modifier: Modif
                 painter = painterResource(character.imageResourceId),
                 contentDescription = null, //no need
                 modifier = Modifier
-                    .size(width = 140.dp, height = 140.dp)
-                    .aspectRatio(1f),
+                    .size(width = 140.dp, height = 165.dp),
                 contentScale = ContentScale.Crop
+            )
+            HorizontalDivider(
+                modifier = Modifier
+                    .size(width = 140.dp, height = 1.dp)  //fill the max height
+                    .width(1.dp),
+                color = Color.DarkGray
             )
             Spacer(modifier = Modifier.height(6.dp))
             Text(
                 text = LocalContext.current.getString(character.stringResourceId),
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.titleMedium,
             )
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(6.dp))
         }
-
     }
 }
 

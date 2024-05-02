@@ -2,9 +2,10 @@
 <resources>
     <dimen name="padding_small">6dp</dimen>
     <dimen name="padding_medium">10dp</dimen>
-    <dimen name="elevation_image">3dp</dimen>
+    <dimen name="elevation_image">5dp</dimen>
     <dimen name="image_height">105dp</dimen>
     <dimen name="image_width">115dp</dimen>
     <dimen name="padding_medium_large">105dp</dimen>
     <dimen name="padding_large">115dp</dimen>
+    <dimen name="vertical_card_padding">6dp</dimen>
 </resources>

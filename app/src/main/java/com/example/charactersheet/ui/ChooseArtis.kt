@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -22,10 +23,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.charactersheet.ui.theme.CharacterSheetTheme
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.unit.dp
 import com.example.charactersheet.R
 import com.example.charactersheet.data.Datasource
 import com.example.charactersheet.model.Artist
@@ -36,7 +40,7 @@ fun ArtistList(
     artistList: List<Artist>,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(artistList) { artist ->
             ArtistCard(
                 artist = artist,
@@ -45,7 +49,7 @@ fun ArtistList(
                     .padding(
                         top = dimensionResource(R.dimen.padding_medium),
                         start = dimensionResource(R.dimen.padding_medium),
-                        end = dimensionResource(R.dimen.padding_medium)
+                        end = dimensionResource(R.dimen.padding_medium),
                     )
             )
         }
@@ -56,6 +60,7 @@ fun ArtistCard(artist: Artist,onButtonCard: () -> Unit, modifier: Modifier = Mod
     Card(
         modifier = modifier
             .fillMaxWidth()
+            .shadow(3.dp, shape = RoundedCornerShape(16.dp))
             .clip(MaterialTheme.shapes.medium)
             .clickable {
             },
