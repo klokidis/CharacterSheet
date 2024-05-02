@@ -60,7 +60,7 @@ fun ArtistCard(artist: Artist,onButtonCard: () -> Unit, modifier: Modifier = Mod
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(3.dp, shape = RoundedCornerShape(16.dp))
+            .shadow(2.dp, shape = RoundedCornerShape(16.dp))
             .clip(MaterialTheme.shapes.medium)
             .clickable {
             },

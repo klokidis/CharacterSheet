@@ -23,12 +23,14 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.charactersheet.ui.ArtistList
+import com.example.charactersheet.ui.CharacterPage
 import com.example.charactersheet.ui.CharacterViewModel
 import com.example.charactersheet.ui.ChooseCharacter
 
 enum class CharacterScreen(@StringRes var title: Int) {
     Start(title = R.string.app_name),
     Artist(title = R.string.app_name),
+    Character(title = R.string.empty)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,7 +40,7 @@ fun TopAppBar(
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier) {
-    if(true) {
+    if(currentScreen.title != CharacterScreen.Character.title) {
         CenterAlignedTopAppBar(
             navigationIcon = {
                 if (canNavigateBack) {
@@ -56,7 +58,7 @@ fun TopAppBar(
                     style = MaterialTheme.typography.titleLarge
                 )
             },
-            modifier = modifier
+            modifier = modifier,
         )
     }
 }
@@ -99,8 +101,15 @@ fun CharacterSheetApp(
                 ChooseCharacter(
                     onButtonCard = {
                         viewModel.selectedCharacter(it)
+                        navController.navigate(CharacterScreen.Character.name)
                     },
                     uiState.listOfCharacters
+                )
+            }
+            composable(route = CharacterScreen.Character.name) {
+                CharacterPage(
+                    uiState.characterChosen,
+                    navigateUp = { navController.navigateUp() }
                 )
             }
         }

@@ -12,7 +12,7 @@ class Datasource() {
             Artist(R.string.name1, R.drawable.artist1),
             Artist(R.string.name1, R.drawable.artist1),
             Artist(R.string.name1, R.drawable.artist1),
-            Artist(R.string.name1, R.drawable.artist1),
+            Artist(R.string.neuvi, R.drawable.artist1),
 //            Artist(R.string.affirmation2, R.drawable.image2),
 //            Artist(R.string.affirmation3, R.drawable.image3),
 //            Artist(R.string.affirmation4, R.drawable.image4),
@@ -26,6 +26,7 @@ class Datasource() {
     }
     fun loadCharacters(): List<Character> {
         return listOf<Character>(
+            Character(R.string.neuvi, R.drawable.neuvi,R.string.neuvi),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
