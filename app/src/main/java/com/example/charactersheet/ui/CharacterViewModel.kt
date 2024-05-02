@@ -1,6 +1,7 @@
 package com.example.charactersheet.ui
 
 import androidx.lifecycle.ViewModel
+import com.example.charactersheet.data.Datasource
 import com.example.charactersheet.model.Artist
 import com.example.charactersheet.model.Character
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,7 @@ class CharacterViewModel : ViewModel(){
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
     init {
-
+        resetArtistChosen()
     }
 
     fun selectedArtist(artist: Artist){
@@ -31,4 +32,12 @@ class CharacterViewModel : ViewModel(){
             )
         }
     }
+    fun resetArtistChosen(){
+        _uiState.update { currentState ->
+            currentState.copy(
+                listOfCharacters = Datasource().loadCharacters()
+            )
+        }
+    }
+
 }

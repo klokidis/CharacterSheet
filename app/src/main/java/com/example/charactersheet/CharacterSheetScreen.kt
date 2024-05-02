@@ -90,6 +90,7 @@ fun CharacterSheetApp(
             composable(route = CharacterScreen.Start.name) {
                 ArtistList(
                     onButtonCard = {
+                        viewModel.resetArtistChosen()
                         CharacterScreen.Artist.title = it.stringResourceId
                         viewModel.selectedArtist(it)
                         navController.navigate(CharacterScreen.Artist.name)
