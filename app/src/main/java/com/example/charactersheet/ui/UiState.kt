@@ -12,6 +12,6 @@ data class UiState(
     val artistChosen : Artist = Artist(0,0),
     val characterChosen : Character = Character(0,0,0),
 
-    val listOfCharacters: List<Character> = listOf(Character(0, 0,0)),
+    val listOfCharacters: List<Character> = Datasource().loadCharacters(),
     val listOfArtists: List<Artist> = Datasource().loadArtists(),
 )

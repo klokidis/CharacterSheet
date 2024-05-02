@@ -2,7 +2,7 @@ package com.example.charactersheet.ui
 
 import androidx.lifecycle.ViewModel
 import com.example.charactersheet.model.Artist
-import com.example.charactersheet.ui.UiState
+import com.example.charactersheet.model.Character
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,6 +21,13 @@ class CharacterViewModel : ViewModel(){
             currentState.copy(
                 artistChosen = artist,
                 listOfCharacters = _uiState.value.listOfCharacters.filter { it.artist == artist.stringResourceId }
+            )
+        }
+    }
+    fun selectedCharacter(character: Character){
+        _uiState.update { currentState ->
+            currentState.copy(
+                characterChosen = character
             )
         }
     }

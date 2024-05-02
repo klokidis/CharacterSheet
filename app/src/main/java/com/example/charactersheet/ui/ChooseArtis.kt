@@ -40,6 +40,7 @@ fun ArtistList(
         items(artistList) { artist ->
             ArtistCard(
                 artist = artist,
+                {onButtonCard(artist)},
                 modifier = modifier
                     .padding(
                         top = dimensionResource(R.dimen.padding_medium),
@@ -51,13 +52,14 @@ fun ArtistList(
     }
 }
 @Composable
-fun ArtistCard(artist: Artist, modifier: Modifier = Modifier) {
+fun ArtistCard(artist: Artist,onButtonCard: () -> Unit, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.medium)
             .clickable {
             },
+        onClick = onButtonCard,
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.inverseOnSurface,
         ),

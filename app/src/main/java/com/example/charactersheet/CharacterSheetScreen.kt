@@ -24,6 +24,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.charactersheet.ui.ArtistList
 import com.example.charactersheet.ui.CharacterViewModel
+import com.example.charactersheet.ui.ChooseCharacter
 
 enum class CharacterScreen(@StringRes var title: Int) {
     Start(title = R.string.app_name),
@@ -95,7 +96,12 @@ fun CharacterSheetApp(
                 )
             }
             composable(route = CharacterScreen.Artist.name) {
-
+                ChooseCharacter(
+                    onButtonCard = {
+                        viewModel.selectedCharacter(it)
+                    },
+                    uiState.listOfCharacters
+                )
             }
         }
     }
