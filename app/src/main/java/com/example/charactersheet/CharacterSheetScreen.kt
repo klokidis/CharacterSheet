@@ -28,8 +28,8 @@ import com.example.charactersheet.ui.CharacterViewModel
 import com.example.charactersheet.ui.ChooseCharacter
 
 enum class CharacterScreen(@StringRes var title: Int) {
-    Start(title = R.string.app_name),
-    Artist(title = R.string.app_name),
+    Start(title = R.string.artists),
+    Artist(title = R.string.Character),
     Character(title = R.string.empty)
 }
 
@@ -91,7 +91,6 @@ fun CharacterSheetApp(
                 ArtistList(
                     onButtonCard = {
                         viewModel.resetArtistChosen()
-                        CharacterScreen.Artist.title = it.stringResourceId
                         viewModel.selectedArtist(it)
                         navController.navigate(CharacterScreen.Artist.name)
                     },

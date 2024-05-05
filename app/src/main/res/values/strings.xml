@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Character sheet</string>
-    <string name="Artists">Artists</string>
+    <string name="artists">Select an Artists</string>
+    <string name="Character">Select a Character</string>
     <string name="name1">Asir</string>
     <string name="previous_button">Previous Button</string>
     <string name="empty">" "</string>

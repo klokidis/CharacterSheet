@@ -5,6 +5,7 @@
     <dimen name="elevation_image">5dp</dimen>
     <dimen name="image_height">105dp</dimen>
     <dimen name="image_width">115dp</dimen>
+    <dimen name="image_start">70dp</dimen>
     <dimen name="padding_medium_large">105dp</dimen>
     <dimen name="padding_large">115dp</dimen>
     <dimen name="vertical_card_padding">6dp</dimen>
