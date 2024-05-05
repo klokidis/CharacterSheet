@@ -114,7 +114,7 @@ fun GreetingPreview2() {
     CharacterSheetTheme {
         ChooseCharacter(
             {Character(0,0,0) } ,
-            listOf<Character>(
+            listOf(
                 Character(R.string.name1, R.drawable.artist1,R.string.name1),
                 Character(R.string.name1, R.drawable.artist1,R.string.name1),
                 Character(R.string.name1, R.drawable.artist1,R.string.name1),

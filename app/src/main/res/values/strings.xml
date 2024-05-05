@@ -3,4 +3,14 @@
     <string name="Artists">Artists</string>
     <string name="name1">Asir</string>
     <string name="previous_button">Previous Button</string>
+    <string name="empty">" "</string>
+    <string name="neuvi">neuvi</string>
+    <string name="profile_tab">Profile</string>
+    <string name="story_tab">Story</string>
+
+    <string name="name">Name: %s </string>
+    <string name="age">Age: %s </string>
+    <string name="sex">Gender: %s </string>
+    <string name="birth_date">Birthday: %s </string>
+
 </resources>

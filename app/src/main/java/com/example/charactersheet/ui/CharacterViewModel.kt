@@ -1,9 +1,11 @@
 package com.example.charactersheet.ui
 
 import androidx.lifecycle.ViewModel
+import com.example.charactersheet.R
 import com.example.charactersheet.data.Datasource
 import com.example.charactersheet.model.Artist
 import com.example.charactersheet.model.Character
+import com.example.charactersheet.model.TabItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,4 +42,12 @@ class CharacterViewModel : ViewModel(){
         }
     }
 
+    val tabItems = listOf(
+        TabItem(
+            title = R.string.profile_tab
+        ),
+        TabItem(
+            title = R.string.story_tab
+        ),
+    )
 }
