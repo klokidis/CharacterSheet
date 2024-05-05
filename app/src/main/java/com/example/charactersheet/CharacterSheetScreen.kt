@@ -55,7 +55,7 @@ fun TopAppBar(
             title = {
                 Text(
                     stringResource(currentScreen.title),
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.bodyLarge
                 )
             },
             modifier = modifier,

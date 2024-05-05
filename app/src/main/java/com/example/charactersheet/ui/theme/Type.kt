@@ -8,11 +8,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.charactersheet.R
 
-val PatuaOne = FontFamily(
-    Font(R.font.patuaone_regular)
-)
+//val PatuaOne = FontFamily(
+//    Font(R.font.patuaone_regular)
+//)
 val Tauri = FontFamily(
     Font(R.font.tauri_regular)
+)
+val baseneune = FontFamily(
+    Font(R.font.baseneue)
 )
 
 val Montserrat = FontFamily(
@@ -37,14 +40,14 @@ val Typography = Typography(
         fontSize = 14.sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = Montserrat,
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
-    ),
-    titleLarge= TextStyle(
         fontFamily = Tauri,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
+    ),
+    titleLarge= TextStyle(
+        fontFamily = baseneune,
+        fontWeight = FontWeight.Bold,
+        fontSize = 35.sp
     )
 
     /* Other default text styles to override
