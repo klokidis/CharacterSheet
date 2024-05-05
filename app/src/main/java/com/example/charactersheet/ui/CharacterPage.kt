@@ -51,11 +51,11 @@ import com.example.charactersheet.ui.theme.CharacterSheetTheme
 
 @Composable
 fun CharacterPage(
-    character : Character,
+    character: Character,
     navigateUp: () -> Unit
-){
+) {
     val scrollState = rememberScrollState()
-    val thisBackgroundColor =  MaterialTheme.colorScheme.background
+    val thisBackgroundColor = MaterialTheme.colorScheme.background
 
     Column(
         Modifier
@@ -73,15 +73,15 @@ fun CharacterPage(
                     .fillMaxWidth()
                     .fillMaxHeight(0.8f),
                 contentAlignment = Alignment.TopStart
-            ){
-            Image(
-                painter = painterResource(character.imageResourceId),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(0.8f),
-                contentScale = ContentScale.Crop
-            )
+            ) {
+                Image(
+                    painter = painterResource(character.imageResourceId),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(0.8f),
+                    contentScale = ContentScale.Crop
+                )
                 if (scrollState.value == 0) { // Check if scroll position is at the top
                     IconButton(onClick = navigateUp) {
                         Icon(
@@ -120,8 +120,9 @@ fun CharacterPage(
         TabRowBar(character)
     }
 }
+
 @Composable
-fun Profile(character: Character){
+fun Profile(character: Character) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -136,25 +137,33 @@ fun Profile(character: Character){
             Column(
                 modifier = Modifier
                     .padding(15.dp)
-            ){
-                Text(text = stringResource(
-                    R.string.name,
-                    " " + stringResource(character.stringResourceId))
+            ) {
+                Text(
+                    text = stringResource(
+                        R.string.name,
+                        " " + stringResource(character.stringResourceId)
+                    )
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
-                Text(text = stringResource(
-                    R.string.age,
-                    " " + stringResource(character.stringResourceId))
+                Text(
+                    text = stringResource(
+                        R.string.age,
+                        " " + stringResource(character.stringResourceId)
+                    )
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
-                Text(text = stringResource(
-                    R.string.sex,
-                    " " + stringResource(character.stringResourceId))
+                Text(
+                    text = stringResource(
+                        R.string.sex,
+                        " " + stringResource(character.stringResourceId)
+                    )
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
-                Text(text = stringResource(
-                    R.string.birth_date,
-                    " " + stringResource(character.stringResourceId))
+                Text(
+                    text = stringResource(
+                        R.string.birth_date,
+                        " " + stringResource(character.stringResourceId)
+                    )
                 )
             }
 
@@ -180,13 +189,13 @@ fun TabRowBar(character: Character) {
         CharacterViewModel().tabItems.size
     }
 
-    LaunchedEffect(selectedTabIndex){
+    LaunchedEffect(selectedTabIndex) {
         pagerState.animateScrollToPage(selectedTabIndex)
     }
-    LaunchedEffect(pagerState.currentPage,) {//pagerState.isScrollInProgress
-       // if(!pagerState.isScrollInProgress){
-            selectedTabIndex = pagerState.currentPage
-       // }
+    LaunchedEffect(pagerState.currentPage) {//pagerState.isScrollInProgress
+        // if(!pagerState.isScrollInProgress){
+        selectedTabIndex = pagerState.currentPage
+        // }
     }
 
     Column(
@@ -195,7 +204,7 @@ fun TabRowBar(character: Character) {
         )
     ) {
         TabRow(selectedTabIndex = selectedTabIndex) {
-            CharacterViewModel().tabItems.forEachIndexed {index, item ->
+            CharacterViewModel().tabItems.forEachIndexed { index, item ->
                 Tab(
                     selected = index == selectedTabIndex,
                     onClick = {
@@ -213,13 +222,13 @@ fun TabRowBar(character: Character) {
             state = pagerState,
             modifier = Modifier
                 .fillMaxSize()
-        ) {index ->
+        ) { index ->
             Box(
                 contentAlignment = Alignment.TopCenter,
-            ){
-                if(index==0){
+            ) {
+                if (index == 0) {
                     Profile(character)
-                }else{
+                } else {
                     Profile(character)
                 }
             }
@@ -229,13 +238,12 @@ fun TabRowBar(character: Character) {
 }
 
 
-
 @Preview(showBackground = true)
 @Composable
 fun CarcterPreview() {
     CharacterSheetTheme {
         CharacterPage(
-            Character(R.string.neuvi,R.drawable.neuvi,R.string.neuvi),
+            Character(R.string.neuvi, R.drawable.neuvi, R.string.neuvi),
             {}
         )
     }

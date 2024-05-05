@@ -6,7 +6,7 @@ import com.example.charactersheet.model.Character
 class Datasource() {
     fun loadArtists(): List<Artist> {
         return listOf<Artist>(
-            Artist(R.string.name1, R.drawable.artist1),
+            Artist(R.string.neuvi, R.drawable.neuvi),
             Artist(R.string.name1, R.drawable.artist1),
             Artist(R.string.name1, R.drawable.artist1),
             Artist(R.string.name1, R.drawable.artist1),
@@ -26,7 +26,7 @@ class Datasource() {
     }
     fun loadCharacters(): List<Character> {
         return listOf<Character>(
-            Character(R.string.neuvi, R.drawable.neuvi,R.string.neuvi),
+            Character(R.string.neuvi, R.drawable.neuvi,R.string.name1),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
             Character(R.string.name1, R.drawable.artist1,R.string.name1),
