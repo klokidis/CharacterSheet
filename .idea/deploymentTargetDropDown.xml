@@ -2,30 +2,11 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="GreetingPreview">
-        <State />
-      </entry>
-      <entry key="GreetingPreview (1)">
-        <State />
-      </entry>
       <entry key="GreetingPreview2">
         <State />
       </entry>
       <entry key="app">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="GM7PKZZPY9TO59MN" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-03T00:12:57.840435Z" />
-        </State>
+        <State />
       </entry>
     </value>
   </component>

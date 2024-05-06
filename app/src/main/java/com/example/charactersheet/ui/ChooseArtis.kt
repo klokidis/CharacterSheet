@@ -72,11 +72,8 @@ fun ArtistList(
                             Color.Black.copy(
                                 alpha = (0.1f)
                             )
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-
-                }
+                        )
+                )
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
