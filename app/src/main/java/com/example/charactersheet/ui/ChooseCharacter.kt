@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -68,7 +67,7 @@ fun ChooseCharacter(
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(),
-                    contentAlignment = Alignment.BottomCenter
+                    contentAlignment = Alignment.BottomEnd
                 ) {
                     Image(
                         painter = painterResource(
@@ -78,8 +77,7 @@ fun ChooseCharacter(
                         null,
                         modifier = Modifier
                             .fillMaxHeight()
-                            .padding(start = 50.dp, bottom = 10.dp,top = 10.dp)
-                            .width(150.dp),
+                            .padding(bottom = 10.dp,top = 10.dp, end = 5.dp),
                         contentScale = ContentScale.Fit
                     )
                     Box(
@@ -89,7 +87,7 @@ fun ChooseCharacter(
                         contentAlignment = Alignment.BottomStart
                     ) {
                         Text(
-                            text = stringResource(id = thisCharacter.stringResourceId),
+                            text = stringResource(thisCharacter.stringResourceId),
                             style = MaterialTheme.typography.titleLarge.copy(
                                 fontSize = 30.sp,
                                 color = Color.Black,
