@@ -13,5 +13,4 @@ Welcome to the Character Sheet App! This application is designed to showcase ori
   
 ## Screenshots:
 
-## License:
-Scrubs Up is licensed under the [MIT License](LICENSE). Feel free to modify and distribute the app for educational purposes.
+
