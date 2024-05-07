@@ -40,6 +40,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -65,13 +66,13 @@ fun CharacterPage(
         Box( // text on top of image to bottom start
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.8f),
+                .fillMaxHeight(1f),
             contentAlignment = Alignment.BottomStart
         ) {
             Box( // arrow on top of image to top start
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.8f),
+                    .fillMaxHeight(1f),
                 contentAlignment = Alignment.TopStart
             ) {
                 Image(
@@ -79,7 +80,7 @@ fun CharacterPage(
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .fillMaxHeight(0.8f),
+                        .fillMaxHeight(1f),
                     contentScale = ContentScale.Crop
                 )
                 if (scrollState.value == 0) { // Check if scroll position is at the top
@@ -87,7 +88,7 @@ fun CharacterPage(
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.previous_button),
-                            modifier = Modifier.size(36.dp)
+                            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_character))
                         )
                     }
                 }
@@ -98,7 +99,7 @@ fun CharacterPage(
                     color = Color.White,
                     shadow = Shadow(
                         color = Color.Black,
-                        offset = Offset(2f, 3f),
+                        offset = Offset(3f, 3f),
                         blurRadius = 6f
                     )
                 ),
@@ -240,7 +241,7 @@ fun TabRowBar(character: Character) {
 
 @Preview(showBackground = true)
 @Composable
-fun CarcterPreview() {
+fun CharacterPreview() {
     CharacterSheetTheme {
         CharacterPage(
             Character(R.string.neuvi, R.drawable.neuvi, R.string.neuvi),

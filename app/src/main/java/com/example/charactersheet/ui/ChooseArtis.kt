@@ -46,7 +46,7 @@ fun ArtistList(
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(artistList) { artist ->
             Box(
-                modifier = Modifier.height(180.dp)
+                modifier = Modifier.height(dimensionResource(id = R.dimen.artist_box))
             ) {
                 ArtistCard(
                     artist = artist,
@@ -77,7 +77,7 @@ fun ArtistList(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(180.dp)
+                        .height(dimensionResource(id = R.dimen.artist_box))
                         .padding(end = 30.dp, bottom = 19.dp),
                     contentAlignment = Alignment.TopEnd
                 ) {
@@ -86,7 +86,7 @@ fun ArtistList(
                         contentDescription = null, //no need
                         modifier = Modifier
                             .fillMaxHeight()
-                            .width(150.dp),
+                            .width(dimensionResource(id = R.dimen.artist_Image)),
                         contentScale = ContentScale.Fit
                     )
                 }
@@ -100,7 +100,7 @@ fun ArtistCard(artist: Artist, onButtonCard: () -> Unit, modifier: Modifier = Mo
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(150.dp)
+            .height(dimensionResource(id = R.dimen.artist_card))
             .shadow(2.dp, shape = RoundedCornerShape(16.dp))
             .clip(MaterialTheme.shapes.medium)
             .clickable {

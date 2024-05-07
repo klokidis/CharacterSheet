@@ -42,7 +42,7 @@ fun ChooseCharacter(
     characterList: List<Character>,
 ) {
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
+        columns = GridCells.Fixed(2), //Cards per row
         modifier = Modifier
             .padding(start = 10.dp, end = 10.dp, top = 10.dp)
             .fillMaxSize()
@@ -50,7 +50,7 @@ fun ChooseCharacter(
         items(characterList) { thisCharacter ->
             Box(
                 modifier = Modifier
-                    .height(240.dp)
+                    .height(dimensionResource(id = R.dimen.character_box))
                     .fillMaxWidth()
                     .padding(bottom = 20.dp, top = 20.dp)
             ) {
@@ -77,7 +77,7 @@ fun ChooseCharacter(
                         null,
                         modifier = Modifier
                             .fillMaxHeight()
-                            .padding(bottom = 10.dp,top = 10.dp, end = 5.dp),
+                            .padding(bottom = 10.dp, top = 10.dp, end = 5.dp),
                         contentScale = ContentScale.Fit
                     )
                     Box(
@@ -117,7 +117,7 @@ fun CharacterCard3(onButtonCard: () -> Unit, modifier: Modifier) {
         ),
         modifier = modifier
             .clip(MaterialTheme.shapes.medium)
-            .height(160.dp)
+            .height(dimensionResource(id = R.dimen.character_card))
             .fillMaxWidth()
             .shadow(elevation = 2.dp, shape = RoundedCornerShape(16.dp)),
 

@@ -9,4 +9,10 @@
     <dimen name="padding_medium_large">105dp</dimen>
     <dimen name="padding_large">115dp</dimen>
     <dimen name="vertical_card_padding">6dp</dimen>
+    <dimen name="artist_box">180.dp</dimen>
+    <dimen name="artist_Image">150dp</dimen>
+    <dimen name="artist_card">150dp</dimen>
+    <dimen name="icon_character">36dp</dimen>
+    <dimen name="character_box">240.dp</dimen>
+    <dimen name="character_card">160dp</dimen>
 </resources>
