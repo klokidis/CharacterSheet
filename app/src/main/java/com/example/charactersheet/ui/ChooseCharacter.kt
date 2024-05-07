@@ -41,6 +41,17 @@ fun ChooseCharacter(
     onButtonCard: (Character) -> Unit,
     characterList: List<Character>,
 ) {
+    val thisBackgroundColor = MaterialTheme.colorScheme.background
+    val textColor: Color
+    val blurColor: Color
+
+    if(thisBackgroundColor == Color(0xFFFDFCFF)){ // if is in light mode
+        textColor = Color.Black
+        blurColor = Color.White
+    }else{
+        textColor = Color.White
+        blurColor = Color.Black
+    }
     LazyVerticalGrid(
         columns = GridCells.Fixed(2), //Cards per row
         modifier = Modifier
@@ -54,7 +65,7 @@ fun ChooseCharacter(
                     .fillMaxWidth()
                     .padding(bottom = 20.dp, top = 20.dp)
             ) {
-                CharacterCard3(
+                CharacterCard(
                     { onButtonCard(thisCharacter) },
                     modifier = Modifier
                         .padding(
@@ -90,9 +101,9 @@ fun ChooseCharacter(
                             text = stringResource(thisCharacter.stringResourceId),
                             style = MaterialTheme.typography.titleLarge.copy(
                                 fontSize = 30.sp,
-                                color = Color.Black,
+                                color = textColor,
                                 shadow = Shadow(
-                                    color = Color.White,
+                                    color = blurColor,
                                     offset = Offset(1f, 1f),
                                     blurRadius = 1f
                                 )
@@ -107,7 +118,7 @@ fun ChooseCharacter(
 }
 
 @Composable
-fun CharacterCard3(onButtonCard: () -> Unit, modifier: Modifier) {
+fun CharacterCard(onButtonCard: () -> Unit, modifier: Modifier) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.inverseOnSurface,
@@ -136,13 +147,12 @@ fun GreetingPreview2() {
             { Character(0, 0, 0) },
             listOf(
                 Character(R.string.app_name, R.drawable.sage, R.string.neuvi),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.sage, R.string.name1),
-                Character(R.string.name1, R.drawable.artist1, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
+                Character(R.string.neuvi, R.drawable.sage, R.string.name1),
             )
         )
     }
