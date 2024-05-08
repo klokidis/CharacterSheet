@@ -13,4 +13,8 @@ Welcome to the Character Sheet App! This application is designed to showcase ori
   
 ## Screenshots:
 
+<img src="https://github.com/klokidis/CharacterSheet/assets/132920931/fbb9be9b-0183-41d0-8c0a-c329a1c365b8" width="200" alt="Screenshot1">
+<img src="https://github.com/klokidis/CharacterSheet/assets/132920931/15c929ff-e3f9-4bfd-8676-df6d6a73cac8" width="200" alt="Screenshot1">
+
+(images will be changed)
 
