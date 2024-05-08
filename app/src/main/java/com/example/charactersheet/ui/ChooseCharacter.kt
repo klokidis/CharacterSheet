@@ -88,7 +88,7 @@ fun ChooseCharacter(
                         null,
                         modifier = Modifier
                             .fillMaxHeight()
-                            .padding(bottom = 10.dp, top = 10.dp, end = 5.dp),
+                            .padding(bottom = 10.dp, top = 10.dp, end = 10.dp),
                         contentScale = ContentScale.Fit
                     )
                     Box(
