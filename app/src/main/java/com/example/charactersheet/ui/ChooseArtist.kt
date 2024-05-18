@@ -70,7 +70,7 @@ fun ArtistList(
                         )
                         .background(
                             Color.Black.copy(
-                                alpha = (0.1f)
+                                alpha = (0.08f)
                             )
                         )
                 )

@@ -83,14 +83,12 @@ fun CharacterPage(
                         .fillMaxHeight(1f),
                     contentScale = ContentScale.Crop
                 )
-                if (scrollState.value == 0) { // Check if scroll position is at the top
-                    IconButton(onClick = navigateUp) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.previous_button),
-                            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_character))
-                        )
-                    }
+                IconButton(onClick = navigateUp) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.previous_button),
+                        modifier = Modifier.size(dimensionResource(id = R.dimen.icon_character))
+                    )
                 }
             }
             Text(
