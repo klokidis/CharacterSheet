@@ -13,5 +13,6 @@
     <string name="age">Age: %s </string>
     <string name="sex">Gender: %s </string>
     <string name="birth_date">Birthday: %s </string>
+    <string name="drawings">Drawings</string>
 
 </resources>

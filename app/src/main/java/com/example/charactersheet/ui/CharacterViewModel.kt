@@ -49,5 +49,8 @@ class CharacterViewModel : ViewModel(){
         TabItem(
             title = R.string.story_tab
         ),
+        TabItem(
+            title = R.string.drawings
+        ),
     )
 }

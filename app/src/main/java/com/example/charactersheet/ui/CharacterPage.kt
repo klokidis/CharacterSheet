@@ -141,28 +141,32 @@ fun Profile(character: Character) {
                     text = stringResource(
                         R.string.name,
                         " " + stringResource(character.stringResourceId)
-                    )
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
                     text = stringResource(
                         R.string.age,
                         " " + stringResource(character.stringResourceId)
-                    )
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
                     text = stringResource(
                         R.string.sex,
                         " " + stringResource(character.stringResourceId)
-                    )
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
                     text = stringResource(
                         R.string.birth_date,
                         " " + stringResource(character.stringResourceId)
-                    )
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
                 )
             }
 
@@ -191,10 +195,11 @@ fun TabRowBar(character: Character) {
     LaunchedEffect(selectedTabIndex) {
         pagerState.animateScrollToPage(selectedTabIndex)
     }
-    LaunchedEffect(pagerState.currentPage) {//pagerState.isScrollInProgress
-        // if(!pagerState.isScrollInProgress){
-        selectedTabIndex = pagerState.currentPage
-        // }
+
+    LaunchedEffect(pagerState.currentPage , pagerState.isScrollInProgress) {
+        if(!pagerState.isScrollInProgress){
+            selectedTabIndex = pagerState.currentPage
+        }
     }
 
     Column(

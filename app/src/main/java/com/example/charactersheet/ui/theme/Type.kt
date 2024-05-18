@@ -35,9 +35,9 @@ val Typography = Typography(
         fontSize = 20.sp
     ),
     labelSmall = TextStyle(
-        fontFamily = Montserrat,
-        fontWeight = FontWeight.Bold,
-        fontSize = 14.sp
+        fontFamily = Tauri,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
     ),
     bodyLarge = TextStyle(
         fontFamily = Tauri,
@@ -48,7 +48,8 @@ val Typography = Typography(
         fontFamily = baseneune,
         fontWeight = FontWeight.Bold,
         fontSize = 35.sp
-    )
+    ),
+
 
     /* Other default text styles to override
     titleLarge = TextStyle(
@@ -58,12 +59,6 @@ val Typography = Typography(
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
+
     */
 )
