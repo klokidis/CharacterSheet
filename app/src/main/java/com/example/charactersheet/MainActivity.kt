@@ -4,17 +4,24 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.charactersheet.ui.theme.CharacterSheetTheme
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 
 private const val TAG = "com.example.charactersheet.MainActivity"
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             CharacterSheetTheme {
-                CharacterSheetApp()
+                val windowSize = calculateWindowSizeClass(this)
+                CharacterSheetApp(
+                    windowSize = windowSize.widthSizeClass
+                )
             }
         }
     }
@@ -52,6 +59,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     CharacterSheetTheme {
-        CharacterSheetApp()
+        CharacterSheetApp(
+            windowSize = WindowWidthSizeClass.Compact,
+        )
     }
 }
