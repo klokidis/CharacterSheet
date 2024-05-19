@@ -53,7 +53,8 @@ import com.example.charactersheet.ui.theme.CharacterSheetTheme
 @Composable
 fun CharacterPage(
     character: Character,
-    navigateUp: () -> Unit
+    navigateUp: () -> Unit,
+    contentScaleImage: ContentScale
 ) {
     val scrollState = rememberScrollState()
     val thisBackgroundColor = MaterialTheme.colorScheme.background
@@ -81,7 +82,7 @@ fun CharacterPage(
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(1f),
-                    contentScale = ContentScale.Fit
+                    contentScale = contentScaleImage
                 )
                 IconButton(onClick = navigateUp) {
                     Icon(
@@ -248,7 +249,8 @@ fun CharacterPreview() {
     CharacterSheetTheme {
         CharacterPage(
             Character(R.string.neuvi, R.drawable.neuvi, R.string.neuvi),
-            {}
+            {},
+            contentScaleImage = ContentScale.Fit
         )
     }
 }

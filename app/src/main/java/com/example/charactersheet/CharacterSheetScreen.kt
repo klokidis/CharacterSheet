@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -74,10 +75,22 @@ fun CharacterSheetApp(
         backStackEntry?.destination?.route ?: CharacterScreen.Start.name
     )
 
-    val charactersNumberPerRow = when (windowSize) {
-        WindowWidthSizeClass.Compact -> 2
-        WindowWidthSizeClass.Medium, WindowWidthSizeClass.Expanded -> 3
-        else -> 2
+    val charactersNumberPerRow: Int
+    val containScaleImage: ContentScale
+
+    when (windowSize) { //initialize values based on the screen size
+        WindowWidthSizeClass.Compact ->{
+            charactersNumberPerRow = 2
+            containScaleImage = ContentScale.Crop
+        }
+        WindowWidthSizeClass.Medium, WindowWidthSizeClass.Expanded ->{
+            charactersNumberPerRow = 3
+            containScaleImage = ContentScale.Fit
+        }
+        else -> {
+            charactersNumberPerRow = 2
+            containScaleImage = ContentScale.Fit
+        }
     }
 
     Scaffold(
@@ -119,7 +132,8 @@ fun CharacterSheetApp(
             composable(route = CharacterScreen.Character.name) {
                 CharacterPage(
                     uiState.characterChosen,
-                    navigateUp = { navController.navigateUp() }
+                    navigateUp = { navController.navigateUp() },
+                    containScaleImage
                 )
             }
         }

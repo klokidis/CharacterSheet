@@ -14,7 +14,7 @@ class Datasource() {
     }
     fun loadCharacters(): List<Character> {
         return listOf(
-            Character(R.string.name1, R.drawable.sage,R.string.name1),
+            Character(R.string.name1, R.drawable.neuvi,R.string.name1),
             Character(R.string.name1, R.drawable.sage,R.string.name1),
             Character(R.string.name1, R.drawable.sage,R.string.name1),
             Character(R.string.name1, R.drawable.sage,R.string.name1),

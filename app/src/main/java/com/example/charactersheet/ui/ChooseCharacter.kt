@@ -85,12 +85,11 @@ fun ChooseCharacter(
                         painter = painterResource(
                             id = thisCharacter.imageResourceId
                         ),
-                        contentDescription =
-                        null,
+                        contentDescription = null,
                         modifier = Modifier
                             .fillMaxHeight()
-                            .padding(bottom = 10.dp, top = 10.dp, end = 10.dp),
-                        contentScale = ContentScale.Fit
+                            .padding(bottom = 10.dp, top = 10.dp, end = 10.dp, start = 10.dp),
+                        contentScale = ContentScale.FillHeight
                     )
                     Box(
                         modifier = Modifier
@@ -147,7 +146,7 @@ fun GreetingPreview2() {
         ChooseCharacter(
             { Character(0, 0, 0) },
             listOf(
-                Character(R.string.app_name, R.drawable.sage, R.string.neuvi),
+                Character(R.string.app_name, R.drawable.neuvi, R.string.neuvi),
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
