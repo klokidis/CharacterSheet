@@ -81,7 +81,7 @@ fun CharacterPage(
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(1f),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Fit
                 )
                 IconButton(onClick = navigateUp) {
                     Icon(

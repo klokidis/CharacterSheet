@@ -73,6 +73,13 @@ fun CharacterSheetApp(
     val currentScreen = CharacterScreen.valueOf(
         backStackEntry?.destination?.route ?: CharacterScreen.Start.name
     )
+
+    val charactersNumberPerRow = when (windowSize) {
+        WindowWidthSizeClass.Compact -> 2
+        WindowWidthSizeClass.Medium, WindowWidthSizeClass.Expanded -> 3
+        else -> 2
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -105,7 +112,8 @@ fun CharacterSheetApp(
                         viewModel.selectedCharacter(it)
                         navController.navigate(CharacterScreen.Character.name)
                     },
-                    uiState.listOfCharacters
+                    uiState.listOfCharacters,
+                    charactersNumberPerRow
                 )
             }
             composable(route = CharacterScreen.Character.name) {

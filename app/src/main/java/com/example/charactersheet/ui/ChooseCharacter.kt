@@ -40,6 +40,7 @@ import com.example.charactersheet.ui.theme.CharacterSheetTheme
 fun ChooseCharacter(
     onButtonCard: (Character) -> Unit,
     characterList: List<Character>,
+    charactersNumber: Int,
 ) {
     val thisBackgroundColor = MaterialTheme.colorScheme.background
     val textColor: Color
@@ -53,7 +54,7 @@ fun ChooseCharacter(
         blurColor = Color.Black
     }
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2), //Cards per row
+        columns = GridCells.Fixed(charactersNumber), //Cards per row
         modifier = Modifier
             .padding(start = 10.dp, end = 10.dp, top = 10.dp)
             .fillMaxSize()
@@ -153,7 +154,8 @@ fun GreetingPreview2() {
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
                 Character(R.string.neuvi, R.drawable.sage, R.string.name1),
-            )
+            ),
+            2
         )
     }
 }
