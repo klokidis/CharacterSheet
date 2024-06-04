@@ -231,10 +231,13 @@ fun TabRowBar(character: Character) {
             Box(
                 contentAlignment = Alignment.TopCenter,
             ) {
-                if (index == 0) {
-                    Profile(character)
-                } else {
-                    Profile(character)
+                when(index){
+                    0 -> Profile(character)
+                    1 -> Profile(character)
+                    2 -> Profile(character)
+                    else -> {
+                        Profile(character)
+                    }
                 }
             }
 
