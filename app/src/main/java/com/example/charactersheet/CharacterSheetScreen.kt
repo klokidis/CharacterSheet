@@ -32,7 +32,7 @@ import com.example.charactersheet.ui.ChooseCharacter
 enum class CharacterScreen(@StringRes var title: Int) {
     Start(title = R.string.artists),
     Artist(title = R.string.Character),
-    Character(title = R.string.empty)
+    Character(title = R.string.empty) //changes based on the character chosen
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

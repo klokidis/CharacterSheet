@@ -132,7 +132,7 @@ fun Profile(character: Character) {
             modifier = Modifier
                 .wrapContentSize()
                 .fillMaxWidth()
-                .padding(15.dp)
+                .padding(10.dp)
         ) {
             Column(
                 modifier = Modifier
